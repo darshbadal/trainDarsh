@@ -34,11 +34,7 @@
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+
 
     <div class="container login-container">
         <div class="login-form-1">
@@ -68,10 +64,45 @@
     </div>
 </form>
 
+    {% if app.user %}
+        <div class="alert alert-danger">
+            Je bent ingelogd als:
+            <div class="seeMail">
+                {{ app.user.username }}
+            </div>
+
+            <button type="button" class="btn btn-danger">
+                <a href="{{ path('app_logout') }}">Logout</a>
+            </button>
+        </div>
+    {% endif %}
+
     <style>
+
+        .seeMail{
+            color: #8B0000;
+            font-weight: bold;
+        }
+        a{
+            color: #8B0000;
+        }
+
+        a:hover{
+            color: whitesmoke;
+            text-decoration: none;
+        }
+        .alert-danger{
+            text-align: center;
+            color: black;
+        }
+
+        .alert-danger:hover{
+            color: black;
+        }
         .login-container{
             margin: auto;
             margin-top: 40px;
+            margin-bottom: 40px;
             width: 40%;
         }
         .login-logo{

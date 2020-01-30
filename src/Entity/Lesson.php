@@ -45,7 +45,7 @@ class Lesson
     private $training;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\registration", mappedBy="lesson", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Registration", mappedBy="lesson", orphanRemoval=true)
      */
     private $registration;
 
