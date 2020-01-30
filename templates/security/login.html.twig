@@ -23,7 +23,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link active" href="{{ path('app_login') }}">Inloggen</a>
+            <a class="nav-link active" href="/login">Inloggen</a>
         </li>
 
     </ul>
@@ -36,7 +36,7 @@
 
     {% if app.user %}
         <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_home') }}">Logout</a>
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
 
