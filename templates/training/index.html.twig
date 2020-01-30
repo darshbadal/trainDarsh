@@ -3,9 +3,35 @@
 {% block title %}Training index{% endblock %}
 
 {% block body %}
+    <hr>
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/training">Trainings aanbod</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/registreren">Lid worden</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Gedrag regels</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/contact">Locatie & Contact</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link active" href="/login">Inloggen</a>
+        </li>
+
+    </ul>
+
+    <hr>
     <h1>Training index</h1>
 
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -31,11 +57,23 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6" class="table-danger">Geen trainingen beschikbaar</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
     <a href="{{ path('training_new') }}">Create new</a>
+
+    <style>
+        h1{
+            text-align: center;
+            color: #8B0000;
+        }
+
+        .table-danger{
+            text-align: center;
+            color: #8B0000;
+        }
+    </style>
 {% endblock %}
