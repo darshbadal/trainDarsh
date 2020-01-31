@@ -9,10 +9,10 @@
             <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/training">Trainings aanbod</a>
+            <a class="nav-link active" href="/training">Trainings aanbod</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/registreren">Lid worden</a>
+            <a class="nav-link" href="/register">Lid worden</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Gedrag regels</a>
@@ -23,14 +23,14 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link active" href="/login">Inloggen</a>
+            <a class="nav-link" href="/login">Inloggen</a>
         </li>
 
     </ul>
 
     <hr>
     <h1>Training index</h1>
-
+<div class="bodytje">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -51,8 +51,13 @@
                 <td>{{ training.looptijd ? training.looptijd|date('H:i:s') : '' }}</td>
                 <td>{{ training.costs }}</td>
                 <td>
-                    <a href="{{ path('training_show', {'id': training.id}) }}">show</a>
-                    <a href="{{ path('training_edit', {'id': training.id}) }}">edit</a>
+                    <button type="button" class="btn btn-info">
+                        <a href="{{ path('training_show', {'id': training.id}) }}">show</a>
+                    </button>
+
+                    <button type="button" class="btn btn-warning">
+                        <a href="{{ path('training_edit', {'id': training.id}) }}">edit</a>
+                    </button>
                 </td>
             </tr>
         {% else %}
@@ -63,9 +68,16 @@
         </tbody>
     </table>
 
+<button type="button" class="btn btn-success">
     <a href="{{ path('training_new') }}">Create new</a>
-
+</button>
+</div>
     <style>
+        .bodytje{
+            /*background-color: #868686;*/
+            width: 90%;
+            margin: auto;
+        }
         h1{
             text-align: center;
             color: #8B0000;
@@ -74,6 +86,33 @@
         .table-danger{
             text-align: center;
             color: #8B0000;
+        }
+
+        .btn-success a{
+            color: white;
+        }
+
+        .btn-success a:hover{
+            text-decoration: none;
+            color: black;
+        }
+
+        .btn-info a{
+            color: white;
+        }
+
+        .btn-info a:hover{
+            color: black;
+            text-decoration: none;
+        }
+
+        .btn-warning a{
+            color: white;
+        }
+
+        .btn-warning a:hover{
+            color: black;
+            text-decoration: none;
         }
     </style>
 {% endblock %}

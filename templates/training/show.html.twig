@@ -9,10 +9,10 @@
             <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/training">Trainings aanbod</a>
+            <a class="nav-link active" href="/training">Trainings aanbod</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/registreren">Lid worden</a>
+            <a class="nav-link" href="/register">Lid worden</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Gedrag regels</a>
@@ -23,7 +23,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link active" href="/login">Inloggen</a>
+            <a class="nav-link" href="/login">Inloggen</a>
         </li>
 
     </ul>
@@ -56,7 +56,8 @@
         </tbody>
     </table>
 
-    <button class="btn btn-secondary">
+    <div class="buttons">
+    <button class="btn btn-primary">
         <a href="{{ path('training_index') }}">back to list</a>
     </button>
 
@@ -64,11 +65,25 @@
         <a href="{{ path('training_edit', {'id': training.id}) }}">edit</a>
     </button>
 
-    {{ include('training/_delete_form.html.twig') }}
+        <div class="kpnpje">
+            {{ include('training/_delete_form.html.twig') }}
+        </div>
+    </div>
 
     <style>
+        .kpnpje{
+            float: right;
+            background-color: red;
+            border-radius: 15px;
+        }
+
+        .buttons{
+            padding: 10px;
+            /*background-color:gray;*/
+        }
+
         a{
-            color: #8B0000;
+            color: white;
         }
 
         a:hover{

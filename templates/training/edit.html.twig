@@ -5,9 +5,62 @@
 {% block body %}
     <h1>Edit Training</h1>
 
+<div class="container login-container">
+    <div class="login-form-1">
+,   
     {{ include('training/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('training_index') }}">back to list</a>
+        <button type="button" class="btn btn-primary">
+            <a href="{{ path('training_index') }}">back to list</a>
+        </button>
 
     {{ include('training/_delete_form.html.twig') }}
+    </div>
+</div>
+
+    <style>
+        .btn-primary{
+
+        }
+
+        .btn-primary a{
+            color: white;
+
+        }
+        .btn-primary a:hover{
+            text-decoration: none;
+        }
+        h1{
+            text-align: center;
+            color: #8B0000;
+        }
+
+        .login-container{
+            margin: auto;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            width: 40%;
+        }
+
+        .login-logo img{
+            position: absolute;
+            width: 20%;
+            margin-top: 19%;
+            background: #282726;
+            border-radius: 4.5rem;
+            padding: 5%;
+        }
+
+        .login-form-1{
+            padding: 9%;
+            /*background:#282726;*/
+            box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .login-form-1 h3{
+            text-align: center;
+            margin-bottom:12%;
+            color:#8B0000;
+        }
+    </style>
 {% endblock %}

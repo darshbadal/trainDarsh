@@ -15,4 +15,12 @@ class ArticleController extends AbstractController
     {
         return $this->render('Homepage/home.html.twig');
     }
+
+    /**
+     * @Route("/contact")
+     */
+    public function contact()
+    {
+        return $this->render('contact/contact.html.twig');
+    }
 }
