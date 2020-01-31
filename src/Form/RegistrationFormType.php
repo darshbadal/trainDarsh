@@ -22,7 +22,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Accepteer de termen.',
                     ]),
                 ],
             ])
@@ -36,7 +36,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'Je wachtwoord moet langer dan  {{ limit }} karakters zijn',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
