@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LoginUser index{% endblock %}
+
+{% block body %}
+    <h1>LoginUser index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Password</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for login_user in login_users %}
+            <tr>
+                <td>{{ login_user.id }}</td>
+                <td>{{ login_user.email }}</td>
+                <td>{{ login_user.roles ? login_user.roles|json_encode : '' }}</td>
+                <td>{{ login_user.password }}</td>
+                <td>
+                    <a href="{{ path('login_user_show', {'id': login_user.id}) }}">show</a>
+                    <a href="{{ path('login_user_edit', {'id': login_user.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('login_user_new') }}">Create new</a>
+{% endblock %}

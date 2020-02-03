@@ -23,4 +23,12 @@ class ArticleController extends AbstractController
     {
         return $this->render('contact/contact.html.twig');
     }
+
+    /**
+     * @Route("/adminhome", name="app_adminhome")
+     */
+    public function adminHome()
+    {
+        return $this->render('AdminHome/adminHome.html.twig');
+    }
 }
