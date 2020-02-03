@@ -3,7 +3,29 @@
 {% block title %}LoginUser index{% endblock %}
 
 {% block body %}
-    <h1>LoginUser index</h1>
+    <hr>
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="/adminhome">Home</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/training">Trainingen wijzigen</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/login/user">Gegevens Lid wijzigen</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/login">uitloggen</a>
+        </li>
+
+    </ul>
+
+    <hr>
+    <div class="tablewidth">
+    <h1>gebruikers index</h1>
 
     <table class="table">
         <thead>
@@ -11,7 +33,6 @@
                 <th>Id</th>
                 <th>Email</th>
                 <th>Roles</th>
-                <th>Password</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,10 +42,12 @@
                 <td>{{ login_user.id }}</td>
                 <td>{{ login_user.email }}</td>
                 <td>{{ login_user.roles ? login_user.roles|json_encode : '' }}</td>
-                <td>{{ login_user.password }}</td>
                 <td>
-                    <a href="{{ path('login_user_show', {'id': login_user.id}) }}">show</a>
-                    <a href="{{ path('login_user_edit', {'id': login_user.id}) }}">edit</a>
+                    <button class="btn btn-info">
+                        <a href="{{ path('login_user_show', {'id': login_user.id}) }}">show</a>
+                    </button>
+
+
                 </td>
             </tr>
         {% else %}
@@ -36,4 +59,36 @@
     </table>
 
     <a href="{{ path('login_user_new') }}">Create new</a>
+
+    </div>
+    <style>
+
+        .tablewidth{
+            width: 90%;
+            margin: auto;
+        }
+        .kpnpje{
+            float: right;
+            background-color: red;
+            border-radius: 15px;
+        }
+
+        .buttons{
+            padding: 10px;
+            /*background-color:gray;*/
+        }
+
+        a{
+            color: white;
+        }
+
+        a:hover{
+            text-decoration: none;
+        }
+
+        h1{
+            text-align: center;
+            color: #8B0000;
+        }
+    </style>
 {% endblock %}
